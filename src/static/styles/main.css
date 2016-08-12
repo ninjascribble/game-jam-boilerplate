@@ -1,0 +1,9 @@
+body {
+  background-color: rgba(25, 25, 25, 1);
+}
+
+#content {
+  width: 768px;
+  height: 480px;
+  margin: 5px auto;
+}
