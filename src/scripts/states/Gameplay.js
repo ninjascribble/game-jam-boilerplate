@@ -3,7 +3,7 @@ import States from '../constants/States';
 
 export default class GameState extends Phaser.State {
   create () {
-    this.createTitleText(this.game.world.centerX, 40);
+    this.createTitleText(this.world.centerX, 40);
   }
 
   createTitleText (x, y) {
@@ -19,8 +19,8 @@ export default class GameState extends Phaser.State {
   }
 
   update () {
-    if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
-      this.game.state.start(States.MENU);
+    if (this.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
+      this.state.start(States.MENU);
     }
   }
 }
