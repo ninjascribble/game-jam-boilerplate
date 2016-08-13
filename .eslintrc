@@ -21,7 +21,8 @@
     "computed-property-spacing": [2, "never"],
     "array-bracket-spacing": [2, "never"],
     "one-var": [2, "never"],
-    "no-unused-vars": [1, { "vars": "local", "args": "none" }]
+    "no-unused-vars": [1, { "vars": "local", "args": "none" }],
+    "func-names": [0]
   },
   "globals": {
     "Phaser": true,

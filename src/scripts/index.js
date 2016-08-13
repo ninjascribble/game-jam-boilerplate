@@ -22,7 +22,7 @@ const game = new Phaser.Game(
   physicsConfig
 );
 
-game.state.add(States.LOADING.key, Loading, false);
-game.state.add(States.MENU.key, Menu, false);
-game.state.add(States.GAMEPLAY.key, Gameplay, false);
-game.state.start(States.LOADING.key);
+game.state.add(States.LOADING, Loading);
+game.state.add(States.MENU, Menu);
+game.state.add(States.GAMEPLAY, Gameplay);
+game.state.start(States.LOADING);

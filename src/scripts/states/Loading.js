@@ -3,8 +3,6 @@ import States from '../constants/States';
 
 export default class GameState extends Phaser.State {
   preload () {
-    super.preload();
-
     // Pixel-perfect canvas scaling!
     // Thanks to http://www.belenalbeza.com/retro-crisp-pixel-art-in-phaser/
     this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
@@ -21,23 +19,10 @@ export default class GameState extends Phaser.State {
     // when the game is in focus
     this.game.input.keyboard.addKeyCapture(Phaser.Keyboard.SPACEBAR);
 
-    this.game.load.bitmapFont(Fonts.DISPLAY.key, Fonts.DISPLAY.image, Fonts.DISPLAY.manifest);
-  }
-
-  create () {
-    super.create();
+    this.load.bitmapFont(Fonts.DISPLAY_FONT, Fonts.DISPLAY_FONT_SRC, Fonts.DISPLAY_FONT_MAP);
   }
 
   update () {
-    super.update();
-    this.game.state.start(States.MENU.key);
-  }
-
-  render () {
-    super.update();
-  }
-
-  shutdown () {
-    super.shutdown();
+    this.game.state.start(States.MENU);
   }
 }

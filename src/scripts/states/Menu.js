@@ -2,52 +2,42 @@ import Fonts from '../constants/Fonts';
 import States from '../constants/States';
 
 export default class Menu extends Phaser.State {
-  preload () {
-    super.preload();
+  create () {
+    this.titleText = this.createTitleText(this.world.centerX, 40);
+    this.actionText = this.createActionText(this.world.centerX, 80);
   }
 
-  create () {
-    super.create();
+  createTitleText (x, y) {
+    var result = this.add.bitmapText(x, y, Fonts.DISPLAY_FONT);
 
-    let title = this.game.add.bitmapText(0, 0, Fonts.DISPLAY.key);
+    result.fontSize = 12;
+    result.text = 'this is the menu';
+    result.anchor.x = 0.5;
+    result.anchor.y = 0.5;
+    result.align = 'center';
 
-    title.x = this.game.world.centerX;
-    title.y = 40;
-    title.fontSize = 12;
-    title.align = 'center';
-    title.anchor.setTo(0.5, 0.5);
-    title.text = 'This is the menu';
+    return result;
+  }
 
-    let action = this.game.add.bitmapText(0, 0, Fonts.DISPLAY.key);
+  createActionText (x, y) {
+    var timer = this.time.create();
+    var result = this.add.bitmapText(x, y, Fonts.DISPLAY_FONT);
 
-    action.x = this.game.world.centerX;
-    action.y = 80;
-    action.fontSize = 6;
-    action.align = 'center';
-    action.anchor.setTo(0.5, 0.5);
-    action.text = `press space\r\nto start the game`;
+    result.fontSize = 6;
+    result.text = 'press space\r\nto start the game';
+    result.anchor.x = 0.5;
+    result.anchor.y = 0.5;
+    result.align = 'center';
 
-    let actionTimer = this.game.time.create(null);
+    timer.loop(400, () => this.actionText.visible = Boolean(!this.actionText.visible));
+    timer.start();
 
-    actionTimer.loop(300, () => {
-      action.visible = Boolean(!action.visible);
-    });
-
-    actionTimer.start();
+    return result;
   }
 
   update () {
-    super.update();
-    if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
-      this.game.state.start(States.GAMEPLAY.key);
+    if (this.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
+      this.state.start(States.GAMEPLAY);
     }
-  }
-
-  render () {
-    super.render();
-  }
-
-  shutdown () {
-    super.shutdown();
   }
 }
