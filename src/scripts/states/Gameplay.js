@@ -1,26 +1,23 @@
-import Fonts from '../constants/Fonts';
-import States from '../constants/States';
+import _State from './_State';
+import Actors from '../actors';
+import Fonts from '../fonts';
 
-export default class GameState extends Phaser.State {
+export default class Gameplay extends _State {
   create () {
-    this.createTitleText(this.world.centerX, 40);
+    this.world.setBounds(0, 0, 1400, 1400);
+    this.titleText = this.createTitleText(this.world.centerX, 40);
+    this.player = Actors.player(this.game, this.world.centerX, 60, this.world);
+    this.camera.follow(this.player.ship, Phaser.Camera.FOLLOW_LOCKON);
   }
 
   createTitleText (x, y) {
-    var result = this.add.bitmapText(x, y, Fonts.DISPLAY_FONT);
-
-    result.fontSize = 12;
-    result.text = 'this is the game';
-    result.anchor.x = 0.5;
-    result.anchor.y = 0.5;
-    result.align = 'center';
-
-    return result;
+    return Fonts.display(this.game, x, y, 'this is the game', 12, 'center', this.world);
   }
 
   update () {
     if (this.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
-      this.state.start(States.MENU);
+      this.stateProvider.menu(this.state);
     }
+    this.player.update();
   }
 }

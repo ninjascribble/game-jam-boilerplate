@@ -1,7 +1,4 @@
-import States from './constants/States';
-import Gameplay from './states/Gameplay';
-import Loading from './states/Loading';
-import Menu from './states/Menu';
+import States from './states';
 
 const width = 192;
 const height = 120;
@@ -22,6 +19,4 @@ const game = new Phaser.Game(
   physicsConfig
 );
 
-game.state.add(States.LOADING, Loading, true);
-game.state.add(States.MENU, Menu);
-game.state.add(States.GAMEPLAY, Gameplay);
+States.loading(game.state);

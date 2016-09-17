@@ -3,7 +3,6 @@ body {
 }
 
 #content {
-  width: 768px;
-  height: 480px;
+  max-width: 768px;
   margin: 5px auto;
 }

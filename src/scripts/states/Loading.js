@@ -1,7 +1,8 @@
-import Fonts from '../constants/Fonts';
-import States from '../constants/States';
+import _State from './_State';
+import Fonts from '../fonts';
+import Sprites from '../sprites';
 
-export default class GameState extends Phaser.State {
+export default class Loading extends _State {
   init () {
     // Pixel-perfect canvas scaling!
     // Thanks to http://www.belenalbeza.com/retro-crisp-pixel-art-in-phaser/
@@ -21,10 +22,12 @@ export default class GameState extends Phaser.State {
   }
 
   preload () {
-    this.load.bitmapFont(Fonts.DISPLAY_FONT, Fonts.DISPLAY_FONT_SRC, Fonts.DISPLAY_FONT_MAP);
+    Fonts.loadResources(this);
+    Sprites.loadResources(this);
   }
 
+  // create() is automagically triggerd after preload completes
   create () {
-    this.game.state.start(States.MENU);
+    this.stateProvider.menu(this.state);
   }
 }

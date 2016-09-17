@@ -1,33 +1,33 @@
 {
   "extends": "idiomatic",
-  "ecmaFeatures": {
-    "modules": true
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
   },
   "env": {
     "browser": true,
+    "es6": true,
     "mocha": true,
     "node": true,
-    "jquery": true,
-    "es6": true
+    "worker": true
   },
   "rules": {
+    "array-bracket-spacing": [2, "never"],
+    "computed-property-spacing": [2, "never"],
     "no-multi-spaces": [1, { "exceptions": { "VariableDeclarator": true, "Property": true } }],
     "no-multiple-empty-lines": [1, { "max": 2 }],
+    "no-unused-vars": [1, { "vars": "local", "args": "none" }],
+    "one-var": [2, "never"],
     "semi": [2, "always"],
     "space-before-function-paren": [1, "always"],
-    "indent": [2, 2, { "SwitchCase": 1 }],
-    "no-use-before-define": [2, "nofunc"],
-    "space-in-parens": [2, "never"],
-    "computed-property-spacing": [2, "never"],
-    "array-bracket-spacing": [2, "never"],
-    "one-var": [2, "never"],
-    "no-unused-vars": [1, { "vars": "local", "args": "none" }],
-    "func-names": [0]
+    "space-in-parens": [2, "never"]
   },
   "globals": {
     "Phaser": true,
-    "game": true,
-    "pixel": true,
-    "debug": true
+    "debug": true,
+    "game": true
   }
 }
