@@ -15,9 +15,22 @@ export default class Gameplay extends _State {
   }
 
   update () {
-    if (this.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
-      this.stateProvider.menu(this.state);
+    if (this.input.keyboard.isDown(Phaser.Keyboard.A)) {
+      this.player.respawn(this.game.world.centerX, this.player.ship.y);
     }
+
+    if (this.input.keyboard.isDown(Phaser.Keyboard.O)) {
+      this.player.destroy();
+    }
+
+    if (this.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
+      this.player.bankLeft();
+    }
+
+    if (this.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
+      this.player.bankRight();
+    }
+
     this.player.update();
   }
 }
