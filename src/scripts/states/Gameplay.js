@@ -1,6 +1,6 @@
 import _State from './_State';
 import GameObjects from '../game_objects';
-import Fonts from '../fonts';
+import DisplayObjects from '../display_objects';
 
 export default class Gameplay extends _State {
   create () {
@@ -11,7 +11,7 @@ export default class Gameplay extends _State {
   }
 
   createTitleText (x, y) {
-    return Fonts.display(this.game, x, y, 'this is the game', 12, 'center', this.world);
+    return DisplayObjects.displayFont(this.game, x, y, 'this is the game', 12, 'center', this.world);
   }
 
   update () {

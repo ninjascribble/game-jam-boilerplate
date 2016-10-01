@@ -1,5 +1,6 @@
 import _State from './_State';
-import Fonts from '../fonts';
+import DisplayObjects from '../display_objects';
+import GameObjects from '../game_objects';
 
 export default class Loading extends _State {
   init () {
@@ -21,8 +22,8 @@ export default class Loading extends _State {
   }
 
   preload () {
-    Fonts.loadResources(this);
-    this.load.spritesheet('ship', 'assets/ship.png', 6, 6);
+    DisplayObjects.load(this);
+    GameObjects.load(this);
   }
 
   // create() is automagically triggerd after preload completes

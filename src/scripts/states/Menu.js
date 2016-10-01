@@ -1,5 +1,5 @@
 import _State from './_State';
-import Fonts from '../fonts';
+import DisplayObjects from '../display_objects';
 
 export default class Menu extends _State {
   create () {
@@ -11,11 +11,11 @@ export default class Menu extends _State {
   }
 
   createTitleText (x, y) {
-    return Fonts.display(this.game, x, y, 'this is the menu', 12, 'center', this.world);
+    return DisplayObjects.displayFont(this.game, x, y, 'this is the menu', 12, 'center', this.world);
   }
 
   createActionText (x, y) {
-    return Fonts.display(this.game, x, y, 'press space\r\nto start the game', 6, 'center', this.world);
+    return DisplayObjects.displayFont(this.game, x, y, 'press space\r\nto start the game', 6, 'center', this.world);
   }
 
   update () {

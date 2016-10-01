@@ -1,6 +1,6 @@
-export default class _BitmapFont extends Phaser.BitmapText {
-  constructor (game, x, y, font, text, size, align) {
-    super(game, x, y, font, text, size, align);
+export default class DisplayFont extends Phaser.BitmapText {
+  constructor (game, x, y, key, text, size, align) {
+    super(game, x, y, key, text, size, align);
   }
 
   /**
