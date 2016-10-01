@@ -1,13 +1,13 @@
 import _State from './_State';
-import Actors from '../actors';
+import GameObjects from '../game_objects';
 import Fonts from '../fonts';
 
 export default class Gameplay extends _State {
   create () {
     this.world.setBounds(0, 0, 1400, 1400);
     this.titleText = this.createTitleText(this.world.centerX, 40);
-    this.player = Actors.player(this.game, this.world.centerX, 60, this.world);
-    this.camera.follow(this.player.ship, Phaser.Camera.FOLLOW_LOCKON);
+    this.player = GameObjects.player(this.game, this.world.centerX, 60, this.world);
+    this.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
   }
 
   createTitleText (x, y) {
@@ -16,7 +16,7 @@ export default class Gameplay extends _State {
 
   update () {
     if (this.input.keyboard.isDown(Phaser.Keyboard.A)) {
-      this.player.respawn(this.game.world.centerX, this.player.ship.y);
+      this.player.respawn(this.game.world.centerX, this.player.y);
     }
 
     if (this.input.keyboard.isDown(Phaser.Keyboard.O)) {
@@ -25,12 +25,10 @@ export default class Gameplay extends _State {
 
     if (this.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
       this.player.bankLeft();
-    }
-
-    if (this.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
+    } else if (this.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
       this.player.bankRight();
+    } else {
+      this.player.normal();
     }
-
-    this.player.update();
   }
 }

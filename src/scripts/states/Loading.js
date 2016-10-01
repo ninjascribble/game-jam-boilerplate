@@ -1,6 +1,5 @@
 import _State from './_State';
 import Fonts from '../fonts';
-import Sprites from '../sprites';
 
 export default class Loading extends _State {
   init () {
@@ -23,7 +22,7 @@ export default class Loading extends _State {
 
   preload () {
     Fonts.loadResources(this);
-    Sprites.loadResources(this);
+    this.load.spritesheet('ship', 'assets/ship.png', 6, 6);
   }
 
   // create() is automagically triggerd after preload completes
