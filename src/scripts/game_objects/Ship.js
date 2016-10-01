@@ -13,6 +13,7 @@ export default class Ship extends Phaser.Sprite {
   }
 
   respawn (x = 0, y = 0) {
+    this.health = 100;
     this.alive = true;
     this.x = x;
     this.y = y;
@@ -22,23 +23,30 @@ export default class Ship extends Phaser.Sprite {
   }
 
   destroy () {
+    this.health = 0;
     this.animations.play('explode', null, null, true);
   }
 
   normal () {
-    this.animations.play('normal');
-    this.scale.x = 1;
+    if (this.health > 0) {
+      this.animations.play('normal');
+      this.scale.x = 1;
+    }
   }
 
   bankLeft () {
-    this.animations.play('bank');
-    this.body.velocity.x = -this.body.maxVelocity.x;
-    this.scale.x = 1;
+    if (this.health > 0) {
+      this.animations.play('bank');
+      this.body.velocity.x = -this.body.maxVelocity.x;
+      this.scale.x = 1;
+    }
   }
 
   bankRight () {
-    this.animations.play('bank');
-    this.body.velocity.x = this.body.maxVelocity.x;
-    this.scale.x = -1;
+    if (this.health > 0) {
+      this.animations.play('bank');
+      this.body.velocity.x = this.body.maxVelocity.x;
+      this.scale.x = -1;
+    }
   }
 }
