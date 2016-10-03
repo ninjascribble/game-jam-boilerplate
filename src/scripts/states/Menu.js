@@ -4,6 +4,7 @@ import DisplayObjects from '../display_objects';
 export default class Menu extends _State {
   create () {
     this.stage.backgroundColor = '#AACCCC';
+    this.stage.disableVisibilityChange = true;
     this.add.existing(this.titleText());
     this.add.existing(this.alphabetText());
     this.add.existing(this.actionText());
