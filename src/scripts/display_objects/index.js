@@ -1,13 +1,21 @@
-import DisplayFont from './DisplayFont';
+import BitmapFont from './BitmapFont';
 
-const DISPLAY_FONT = '8bit_wonder-light';
+const DISPLAY_FONT = 'Blocktopia_32pt';
+// const DISPLAY_FONT = 'Blocktopia_120pt';
+const BODY_FONT = 'Blocktopia_12pt';
 
 module.exports = {
   load: function load (loader) {
-    loader.load.bitmapFont(DISPLAY_FONT, 'assets/8bit_wonder-light.png', 'assets/8bit_wonder-light.fnt');
+    // loader.load.bitmapFont(DISPLAY_FONT, 'assets/Blocktopia_120pt.png', 'assets/Blocktopia_120pt.fnt');
+    loader.load.bitmapFont(DISPLAY_FONT, 'assets/Blocktopia_32pt.png', 'assets/Blocktopia_32pt.fnt');
+    loader.load.bitmapFont(BODY_FONT, 'assets/Blocktopia_12pt.png', 'assets/Blocktopia_12pt.fnt');
   },
 
-  displayFont: function displayFont (game, x, y, text, size, align) {
-    return new DisplayFont(game, x, y, DISPLAY_FONT, text, size, align);
+  displayFont: function displayFont (game, text = '', x = 0, y = 0, align = 'left') {
+    return new BitmapFont(game, x, y, DISPLAY_FONT, text, 30, align);
+  },
+
+  bodyFont: function displayFont (game, text = '', x = 0, y = 0, align = 'left') {
+    return new BitmapFont(game, x, y, BODY_FONT, text, 12, align);
   }
 };

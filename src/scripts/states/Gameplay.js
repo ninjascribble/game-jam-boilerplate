@@ -4,6 +4,7 @@ import DisplayObjects from '../display_objects';
 
 export default class Gameplay extends _State {
   create () {
+    this.stage.backgroundColor = '#223344';
     this.world.setBounds(0, 0, 1400, 1400);
     this.player = GameObjects.player(this.game, this.world.centerX, 60);
     this.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
@@ -13,7 +14,7 @@ export default class Gameplay extends _State {
   }
 
   titleText () {
-    return DisplayObjects.displayFont(this.game, this.world.centerX, 40, 'this is the game', 12, 'center');
+    return DisplayObjects.displayFont(this.game, 'THIS IS THE GAME', this.world.centerX, 40, 'center');
   }
 
   update () {

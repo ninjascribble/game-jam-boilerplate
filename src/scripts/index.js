@@ -1,7 +1,8 @@
 import States from './states';
 
-const width = 192;
-const height = 120;
+// 2x Gameboy resolution
+const width = 320;
+const height = 288;
 const renderer = Phaser.AUTO;
 const parent = 'content';
 const defaultState = null;
