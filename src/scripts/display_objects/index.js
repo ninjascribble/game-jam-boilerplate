@@ -1,12 +1,10 @@
 import BitmapFont from './BitmapFont';
 
 const DISPLAY_FONT = 'Blocktopia_32pt';
-// const DISPLAY_FONT = 'Blocktopia_120pt';
 const BODY_FONT = 'Blocktopia_12pt';
 
 module.exports = {
   load: function load (loader) {
-    // loader.load.bitmapFont(DISPLAY_FONT, 'assets/Blocktopia_120pt.png', 'assets/Blocktopia_120pt.fnt');
     loader.load.bitmapFont(DISPLAY_FONT, 'assets/Blocktopia_32pt.png', 'assets/Blocktopia_32pt.fnt');
     loader.load.bitmapFont(BODY_FONT, 'assets/Blocktopia_12pt.png', 'assets/Blocktopia_12pt.fnt');
   },
