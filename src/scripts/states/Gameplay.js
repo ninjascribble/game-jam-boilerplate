@@ -6,7 +6,7 @@ export default class Gameplay extends _State {
   create () {
     this.stage.backgroundColor = '#223344';
     this.world.setBounds(0, 0, 1400, 1400);
-    this.player = GameObjects.player(this.game, this.world.centerX, 60);
+    this.player = GameObjects.player(game, this.world.centerX, 60);
     this.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
 
     this.add.existing(this.titleText());
@@ -14,12 +14,12 @@ export default class Gameplay extends _State {
   }
 
   titleText () {
-    return DisplayObjects.displayFont(this.game, 'THIS IS THE GAME', this.world.centerX, 40, 'center');
+    return DisplayObjects.displayFont(game, 'THIS IS THE GAME', this.world.centerX, 40, 'center');
   }
 
   update () {
     if (this.input.keyboard.isDown(Phaser.Keyboard.A)) {
-      this.player.respawn(this.game.world.centerX, this.player.y);
+      this.player.respawn(game.world.centerX, this.player.y);
     }
 
     if (this.input.keyboard.isDown(Phaser.Keyboard.O)) {

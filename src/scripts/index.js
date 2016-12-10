@@ -21,3 +21,5 @@ const game = new Phaser.Game(
 );
 
 States.loading(game.state);
+
+global.game = game;

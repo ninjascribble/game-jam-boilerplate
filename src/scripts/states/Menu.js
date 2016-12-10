@@ -11,11 +11,11 @@ export default class Menu extends _State {
   }
 
   titleText () {
-    return DisplayObjects.displayFont(this.game, 'THIS IS THE MENU', this.world.centerX, 100, 'center');
+    return DisplayObjects.displayFont(game, 'THIS IS THE MENU', this.world.centerX, 100, 'center');
   }
 
   alphabetText () {
-    var text = DisplayObjects.bodyFont(this.game, `
+    var text = DisplayObjects.bodyFont(game, `
 AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
 1,234,567,890 Ti Tj To 77 71 73 91910 .:;,
 !№;%:?*()_+-=.,/|"'@#$^&{}[]`, this.world.centerX, 145, 'center');
@@ -24,7 +24,7 @@ AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
   }
 
   actionText () {
-    var text = DisplayObjects.bodyFont(this.game, 'Press Spacebar to Play!', this.world.centerX, 190, 'center');
+    var text = DisplayObjects.bodyFont(game, 'Press Spacebar to Play!', this.world.centerX, 190, 'center');
     this.time.events.loop(400, () => text.visible = !text.visible);
     return text;
   }
