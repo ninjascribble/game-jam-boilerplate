@@ -1,12 +1,15 @@
 {
-  "name": "LudumDare34-Practice",
-  "version": "1.0.0",
+  "name": "game-jam-boilerplate",
+  "version": "1.0.1",
   "description": "A bit of practice with Phaser, ES2015 and Webpack",
   "scripts": {
-    "start": "npm run dev",
+    "start": "npm install; npm run dev",
     "dev": "webpack-dev-server --content-base build/ --inline",
     "build": "webpack",
-    "lint": "eslint ./src/scripts/*"
+    "lint": "eslint ./src/scripts/*",
+    "clean": "rm -rf ./build",
+    "destroy": "npm run clean; rm -rf ./node_modules",
+    "publish": "npm run build; rm -rf ./docs; cp -R ./build ./docs"
   },
   "repository": {
     "type": "git",
