@@ -5,8 +5,8 @@ const BODY_FONT = 'Blocktopia_12pt';
 
 module.exports = {
   load: function load (loader) {
-    loader.load.bitmapFont(DISPLAY_FONT, 'assets/Blocktopia_32pt.png', 'assets/Blocktopia_32pt.fnt');
-    loader.load.bitmapFont(BODY_FONT, 'assets/Blocktopia_12pt.png', 'assets/Blocktopia_12pt.fnt');
+    loader.load.bitmapFont(DISPLAY_FONT, 'Blocktopia_32pt.png', 'Blocktopia_32pt.fnt');
+    loader.load.bitmapFont(BODY_FONT, 'Blocktopia_12pt.png', 'Blocktopia_12pt.fnt');
   },
 
   displayFont: function displayFont (game, text = '', x = 0, y = 0, align = 'left') {
