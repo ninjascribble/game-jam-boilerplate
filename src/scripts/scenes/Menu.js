@@ -7,6 +7,8 @@ export default class Menu extends Scene {
   }
 
   create () {
+    this.input.keyboard.enabled = true;
+    this.spacebar = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.SPACE);
     this.cameras.main.setBackgroundColor('#AACCCC');
     this.add.existing(this.titleText());
     this.add.existing(this.alphabetText());
@@ -37,8 +39,13 @@ AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
   }
 
   update () {
-    if (this.input.keyboard.checkDown(Input.Keyboard.KeyCodes.SPACE)) {
+    if (this.spacebar.isDown) {
       this.scene.start('Gameplay');
     }
+  }
+
+  destroy () {
+    this.input.keyboard.clearCaptures();
+    this.input.keyboard.enabled = false
   }
 }

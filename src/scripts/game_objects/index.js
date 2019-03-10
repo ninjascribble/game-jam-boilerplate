@@ -10,7 +10,7 @@ module.exports = {
     });
   },
 
-  player: function player (game, x, y) {
+  Player: function player (game, x, y) {
     return new Ship(game, x, y, PLAYER_SHIP);
   }
 };
