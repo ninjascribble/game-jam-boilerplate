@@ -1,4 +1,6 @@
-export default class Ship extends Phaser.Sprite {
+import { GameObjects } from 'Phaser';
+
+export default class Ship extends GameObjects.Sprite {
   constructor (game, x, y, key) {
     super(game, x, y, key);
     this.animations.add('normal', [0, 1, 2], 20, true);

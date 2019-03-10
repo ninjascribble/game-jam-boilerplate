@@ -1,4 +1,6 @@
-export default class BitmapFont extends Phaser.BitmapText {
+import { GameObjects } from 'Phaser';
+
+export default class BitmapFont extends GameObjects.BitmapText {
   constructor (game, x, y, key, text, size, align) {
     super(game, x, y, key, text, size, align);
   }
@@ -10,17 +12,17 @@ export default class BitmapFont extends Phaser.BitmapText {
     this.__align = value;
     switch (value) {
     case 'center':
-      this.anchor.x = 0.5;
-      this.anchor.y = 0.5;
+      this.originX = 0.5;
+      this.originY = 0.5;
       break;
     case 'right':
-      this.anchor.x = 1;
-      this.anchor.y = 0.5;
+      this.originX = 1;
+      this.originY = 0.5;
       break;
     case 'left':
     default:
-      this.anchor.x = 0;
-      this.anchor.y = 0.5;
+      this.originX = 0;
+      this.originY = 0.5;
       break;
     }
   }

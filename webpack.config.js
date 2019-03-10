@@ -21,8 +21,7 @@ module.exports = {
     new CleanPlugin(['build']),
     new CopyPlugin([
       { from: 'static' },
-      { from: 'assets' },
-      { from: '../node_modules/phaser/build' }
+      { from: 'assets' }
     ])
   ]
 };

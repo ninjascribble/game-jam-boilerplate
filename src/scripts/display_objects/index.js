@@ -5,15 +5,15 @@ const BODY_FONT = 'Blocktopia_12pt';
 
 module.exports = {
   load: function load (loader) {
-    loader.load.bitmapFont(DISPLAY_FONT, 'Blocktopia_32pt.png', 'Blocktopia_32pt.fnt');
-    loader.load.bitmapFont(BODY_FONT, 'Blocktopia_12pt.png', 'Blocktopia_12pt.fnt');
+    loader.bitmapFont(DISPLAY_FONT, 'Blocktopia_32pt.png', 'Blocktopia_32pt.fnt');
+    loader.bitmapFont(BODY_FONT, 'Blocktopia_12pt.png', 'Blocktopia_12pt.fnt');
   },
 
-  displayFont: function displayFont (game, text = '', x = 0, y = 0, align = 'left') {
-    return new BitmapFont(game, x, y, DISPLAY_FONT, text, 30, align);
+  displayFont: function displayFont (scene, text = '', x = 0, y = 0, align = 'left') {
+    return new BitmapFont(scene, x, y, DISPLAY_FONT, text, 30, align);
   },
 
-  bodyFont: function displayFont (game, text = '', x = 0, y = 0, align = 'left') {
-    return new BitmapFont(game, x, y, BODY_FONT, text, 12, align);
+  bodyFont: function displayFont (scene, text = '', x = 0, y = 0, align = 'left') {
+    return new BitmapFont(scene, x, y, BODY_FONT, text, 12, align);
   }
 };

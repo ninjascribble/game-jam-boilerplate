@@ -1,25 +1,18 @@
-import States from './states';
+import { Game, Scale } from 'Phaser';
+import { Gameplay, Loading, Menu } from './scenes';
 
-// 2x Gameboy resolution
-const width = 320;
-const height = 288;
-const renderer = Phaser.AUTO;
-const parent = 'content';
-const defaultState = null;
-const transparent = false;
-const antialias = false;
-const physicsConfig = null;
-const game = new Phaser.Game(
-  width,
-  height,
-  renderer,
-  parent,
-  defaultState,
-  transparent,
-  antialias,
-  physicsConfig
-);
-
-States.loading(game.state);
-
-global.game = game;
+const game = new Game({
+  // 2x Gameboy resolution
+  width: 320,
+  height: 288,
+  parent: 'content',
+  scene: [ Loading, Menu, Gameplay ],
+  render: {
+    // Sets antialias and roundPixels to true. This is the best setting for pixel-art games.
+    pixelArt: true
+  },
+  scale: {
+    mode: Scale.FIT,
+    autoCenter: Scale.CENTER_BOTH
+  }
+});
