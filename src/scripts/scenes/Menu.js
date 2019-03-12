@@ -1,4 +1,3 @@
-import DisplayObjects from '../display_objects';
 import { GameObjects, Input, Scene } from 'Phaser';
 
 export default class Menu extends Scene {
@@ -10,32 +9,21 @@ export default class Menu extends Scene {
     this.input.keyboard.enabled = true;
     this.spacebar = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.SPACE);
     this.cameras.main.setBackgroundColor('#AACCCC');
-    this.add.existing(this.titleText());
-    this.add.existing(this.alphabetText());
-    this.add.existing(this.actionText());
-  }
 
-  titleText () {
-    return DisplayObjects.displayFont(this, 'THIS IS THE MENU', this.cameras.main.centerX, 100, GameObjects.BitmapText.ALIGN_CENTER);
-  }
+    this.add.bitmapText(this.cameras.main.centerX, 100, 'Blocktopia_32pt', 'THIS IS THE MENU', 30, GameObjects.BitmapText.ALIGN_CENTER).setOrigin(0.5, 0.5);
 
-  alphabetText () {
-    var text = DisplayObjects.bodyFont(this, `
+    this.add.bitmapText(this.cameras.main.centerX, 145, 'Blocktopia_12pt', `
 AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
 1,234,567,890 Ti Tj To 77 71 73 91910 .:;,
-!№;%:?*()_+-=.,/|"'@#$^&{}[]`, this.cameras.main.centerX, 145, GameObjects.BitmapText.ALIGN_CENTER);
-    text.maxWidth = 300;
-    return text;
-  }
+!№;%:?*()_+-=.,/|"'@#$^&{}[]`, 12, GameObjects.BitmapText.ALIGN_CENTER).setOrigin(0.5, 0.5);
 
-  actionText () {
-    var text = DisplayObjects.bodyFont(this, 'Press Spacebar to Play!', this.cameras.main.centerX, 190, GameObjects.BitmapText.ALIGN_CENTER);
+    let blinkingText = this.add.bitmapText(this.cameras.main.centerX, 190, 'Blocktopia_12pt', 'Press Spacebar to Play!', 12, GameObjects.BitmapText.ALIGN_CENTER)
+    blinkingText.setOrigin(0.5, 0.5);
     this.time.addEvent({
       loop: true,
       delay: 400,
-      callback: () => text.visible = !text.visible
+      callback: () => blinkingText.visible = !blinkingText.visible
     });
-    return text;
   }
 
   update () {

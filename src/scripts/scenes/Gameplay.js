@@ -1,4 +1,3 @@
-import DisplayObjects from '../display_objects';
 import { Camera, GameObjects, Input, Scene } from 'Phaser';
 
 export default class Gameplay extends Scene {
@@ -16,7 +15,7 @@ export default class Gameplay extends Scene {
   }
 
   create () {
-    this.add.existing(this.titleText());
+    this.add.bitmapText(this.cameras.main.centerX, 100, 'Blocktopia_32pt', 'THIS IS THE GAME', 30, GameObjects.BitmapText.ALIGN_CENTER).setOrigin(0.5, 0.5);
 
     this.anims.create({
       key: 'ship--normal',
@@ -62,11 +61,7 @@ export default class Gameplay extends Scene {
     this.player.setFrictionX(300);
     this.player.setMaxVelocity(120, 120);
 
-    this.cameras.main.startFollow(this.player);
-  }
-
-  titleText () {
-    return DisplayObjects.displayFont(this, 'THIS IS THE GAME', this.cameras.main.centerX, 40, GameObjects.BitmapText.ALIGN_CENTER);
+    // this.cameras.main.startFollow(this.player);
   }
 
   update () {
