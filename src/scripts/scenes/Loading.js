@@ -1,5 +1,3 @@
-import DisplayObjects from '../display_objects';
-import GameObjects from '../game_objects';
 import { Canvas, Input, ScaleManager, Scene } from 'Phaser';
 
 export default class Loading extends Scene {
@@ -7,18 +5,10 @@ export default class Loading extends Scene {
     super('Loading');
   }
 
-  init () {
-    // Sets browser-prefixed "image-rendering" CSS property on the game canvas
-    // Canvas.setImageRenderingCrisp(game.canvas);
-
-    // Prevent these keys from being handled by the browser
-    // when the game is in focus
-    this.input.keyboard.addCapture(Input.Keyboard.KeyCodes.SPACE);
-  }
-
   preload () {
-    DisplayObjects.load(this.load);
-    GameObjects.load(this.load);
+    this.load.bitmapFont('Blocktopia_32pt', 'Blocktopia_32pt.png', 'Blocktopia_32pt.fnt');
+    this.load.bitmapFont('Blocktopia_12pt', 'Blocktopia_12pt.png', 'Blocktopia_12pt.fnt');
+    this.load.spritesheet('ship', 'ship.png', { frameWidth: 6, frameHeight: 6 });
   }
 
   // create() is automagically triggerd after preload completes

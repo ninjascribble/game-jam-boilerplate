@@ -7,13 +7,16 @@ export default class Gameplay extends Scene {
   }
 
   init () {
-    this.cameras.main.setBackgroundColor('#223344');
-
     this.input.keyboard.enabled = true;
     this.destroyKey = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.O);
     this.respawnKey = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.A);
     this.moveLeftKey = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.LEFT);
     this.moveRightKey = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.RIGHT);
+    this.cameras.main.setBackgroundColor('#223344');
+  }
+
+  create () {
+    this.add.existing(this.titleText());
 
     this.anims.create({
       key: 'ship--normal',
@@ -51,10 +54,6 @@ export default class Gameplay extends Scene {
         end: 8
       })
     });
-  }
-
-  create () {
-    this.add.existing(this.titleText());
 
     this.player = this.impact.add.sprite(this.cameras.main.centerX, 60, 'ship');
     this.player.health = 100;
@@ -63,7 +62,7 @@ export default class Gameplay extends Scene {
     this.player.setFrictionX(300);
     this.player.setMaxVelocity(120, 120);
 
-    // this.cameras.main.startFollow(this.player);
+    this.cameras.main.startFollow(this.player);
   }
 
   titleText () {

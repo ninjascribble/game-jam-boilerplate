@@ -1,32 +1,19 @@
 import { GameObjects } from 'Phaser';
 
-const DISPLAY_FONT = 'Blocktopia_32pt';
-const BODY_FONT = 'Blocktopia_12pt';
-
 module.exports = {
-  load: function load (loader) {
-    loader.bitmapFont(DISPLAY_FONT, 'Blocktopia_32pt.png', 'Blocktopia_32pt.fnt');
-    loader.bitmapFont(BODY_FONT, 'Blocktopia_12pt.png', 'Blocktopia_12pt.fnt');
-  },
-
   displayFont: function displayFont (scene, text = '', x = 0, y = 0, align = 0) {
-    const font = new GameObjects.BitmapText(scene, x, y, DISPLAY_FONT, text, 30, align);
+    const font = new GameObjects.BitmapText(scene, x, y, 'Blocktopia_32pt', text, 30, align);
     setBitmapTextOrigin(font, align);
     return font;
   },
 
-  bodyFont: function displayFont (scene, text = '', x = 0, y = 0, align = 0) {
-    const font = new GameObjects.BitmapText(scene, x, y, BODY_FONT, text, 12, align);
+  bodyFont: function bodyFont (scene, text = '', x = 0, y = 0, align = 0) {
+    const font = new GameObjects.BitmapText(scene, x, y, 'Blocktopia_12pt', text, 12, align);
     setBitmapTextOrigin(font, align);
     return font;
   }
 };
 
-
-
-/**
- * @override Phaser.BitmapText._align
- */
 function setBitmapTextOrigin(bitmapText, align) {
   switch (align) {
   case GameObjects.BitmapText.ALIGN_CENTER:
