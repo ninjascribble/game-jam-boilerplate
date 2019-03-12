@@ -14,5 +14,20 @@ const game = new Game({
   scale: {
     mode: Scale.FIT,
     autoCenter: Scale.CENTER_BOTH
+  },
+  physics: {
+    default: 'impact',
+    impact: {
+      gravity: 0,
+      debug: true,
+      debugBodyColor: 0xffff00,
+      setBounds: {
+        x: 10,
+        y: 10,
+        width: 300,
+        height: 268,
+        thickness: 32
+      }
+    }
   }
 });
