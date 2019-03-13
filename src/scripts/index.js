@@ -19,7 +19,7 @@ const game = new Game({
     default: 'impact',
     impact: {
       gravity: 0,
-      debug: true,
+      // debug: true,
       debugBodyColor: 0xffff00,
       setBounds: {
         x: 10,

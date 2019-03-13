@@ -13,6 +13,43 @@ export default class Loading extends Scene {
 
   // create() is automagically triggerd after preload completes
   create () {
+    this.anims.create({
+      key: 'ship--normal',
+      defaultTextureKey: 'ship',
+      frameRate: 20,
+      repeat: -1,
+      frames: [
+        { frame: 0 },
+        { frame: 1 },
+        { frame: 2 }
+      ]
+    });
+
+    this.anims.create({
+      key: 'ship--bank',
+      defaultTextureKey: 'ship',
+      frameRate: 20,
+      repeat: -1,
+      frames: [
+        { frame: 3 },
+        { frame: 4 },
+        { frame: 5 }
+      ]
+    });
+
+    this.anims.create({
+      key: 'ship--explode',
+      defaultTextureKey: 'ship',
+      frameRate: 12,
+      repeat: 0,
+      hideOnComplete: true,
+      frames: [
+        { frame: 6 },
+        { frame: 7 },
+        { frame: 8 }
+      ]
+    });
+
     this.scene.start('Menu');
   }
 }

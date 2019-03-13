@@ -17,43 +17,6 @@ export default class Gameplay extends Scene {
   create () {
     this.add.bitmapText(this.cameras.main.centerX, 100, 'Blocktopia_32pt', 'THIS IS THE GAME', 30, GameObjects.BitmapText.ALIGN_CENTER).setOrigin(0.5, 0.5);
 
-    this.anims.create({
-      key: 'ship--normal',
-      defaultTextureKey: 'ship',
-      frameRate: 20,
-      repeat: -1,
-      frames: this.anims.generateFrameNumbers('ship', {
-        prefix: 'ship--normal',
-        start: 0,
-        end: 2
-      })
-    });
-
-    this.anims.create({
-      key: 'ship--bank',
-      defaultTextureKey: 'ship',
-      frameRate: 20,
-      repeat: -1,
-      frames: this.anims.generateFrameNumbers('ship', {
-        prefix: 'ship--bank',
-        start: 3,
-        end: 5
-      })
-    });
-
-    this.anims.create({
-      key: 'ship--explode',
-      defaultTextureKey: 'ship',
-      frameRate: 12,
-      repeat: 0,
-      hideOnComplete: true,
-      frames: this.anims.generateFrameNumbers('ship', {
-        prefix: 'ship--explode',
-        start: 6,
-        end: 8
-      })
-    });
-
     this.player = this.impact.add.sprite(this.cameras.main.centerX, 60, 'ship');
     this.player.health = 100;
     this.player.setActiveCollision();
@@ -85,11 +48,11 @@ export default class Gameplay extends Scene {
   respawn (x = 0, y = 0) {
     if (this.player.health === 0) {
       this.player.health = 100;
-      this.player.visible = true;
       this.player.x = x;
       this.player.y = y;
       this.player.setAcceleration(0, 0);
       this.player.setVelocity(0, 0);
+      this.player.visible = true;
       this.normal();
     }
   }
