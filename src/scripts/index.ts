@@ -1,19 +1,26 @@
-import { Game, Scale } from 'Phaser';
-import { Gameplay, Loading, Menu } from './scenes';
+import 'phaser';
+import Gameplay from './scenes/Gameplay';
+import Loading from './scenes/Loading';
+import Menu from './scenes/Menu';
 
-const game = new Game({
+const container = document.createElement('div');
+
+container.id = 'container';
+document.body.appendChild(container);
+
+const game = new Phaser.Game({
   // 2x Gameboy resolution
   width: 320,
   height: 288,
-  parent: 'content',
+  parent: 'container',
   scene: [ Loading, Menu, Gameplay ],
   render: {
     // Sets antialias and roundPixels to true. This is the best setting for pixel-art games.
     pixelArt: true
   },
   scale: {
-    mode: Scale.FIT,
-    autoCenter: Scale.CENTER_BOTH
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH
   },
   physics: {
     default: 'impact',

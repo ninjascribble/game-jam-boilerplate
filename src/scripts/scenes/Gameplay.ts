@@ -1,24 +1,29 @@
-import { Camera, GameObjects, Input, Scene } from 'Phaser';
+export default class Gameplay extends Phaser.Scene {
+  private player: Phaser.Physics.Impact.ImpactSprite;
+  private playerHealth: Number;
+  private destroyKey: Phaser.Input.Keyboard.Key;
+  private respawnKey: Phaser.Input.Keyboard.Key;
+  private moveLeftKey: Phaser.Input.Keyboard.Key;
+  private moveRightKey: Phaser.Input.Keyboard.Key;
 
-export default class Gameplay extends Scene {
   constructor () {
     super('Gameplay');
   }
 
   init () {
     this.input.keyboard.enabled = true;
-    this.destroyKey = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.O);
-    this.respawnKey = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.A);
-    this.moveLeftKey = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.LEFT);
-    this.moveRightKey = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.RIGHT);
+    this.destroyKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.O);
+    this.respawnKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+    this.moveLeftKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
+    this.moveRightKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
     this.cameras.main.setBackgroundColor('#223344');
   }
 
   create () {
-    this.add.bitmapText(this.cameras.main.centerX, 100, 'Blocktopia_32pt', 'THIS IS THE GAME', 30, GameObjects.BitmapText.ALIGN_CENTER).setOrigin(0.5, 0.5);
+    this.add.bitmapText(this.cameras.main.centerX, 100, 'Blocktopia_32pt', 'THIS IS THE GAME', 30, Phaser.GameObjects.BitmapText.ALIGN_CENTER).setOrigin(0.5, 0.5);
 
     this.player = this.impact.add.sprite(this.cameras.main.centerX, 60, 'ship');
-    this.player.health = 100;
+    this.playerHealth = 100;
     this.player.setActiveCollision();
     this.player.setBounce(1);
     this.player.setFrictionX(300);
@@ -46,8 +51,8 @@ export default class Gameplay extends Scene {
   }
 
   respawn (x = 0, y = 0) {
-    if (this.player.health === 0) {
-      this.player.health = 100;
+    if (this.playerHealth === 0) {
+      this.playerHealth = 100;
       this.player.x = x;
       this.player.y = y;
       this.player.setAcceleration(0, 0);
@@ -58,8 +63,8 @@ export default class Gameplay extends Scene {
   }
 
   destroy () {
-    if (this.player.health > 0) {
-      this.player.health = 0;
+    if (this.playerHealth > 0) {
+      this.playerHealth = 0;
       // will set this.visible = false when animation ends
       this.player.anims.play('ship--explode', true);
       this.player.setAcceleration(0, 0);
@@ -67,7 +72,7 @@ export default class Gameplay extends Scene {
   }
 
   normal () {
-    if (this.player.health > 0) {
+    if (this.playerHealth > 0) {
       this.player.anims.play('ship--normal', true);
       this.player.flipX = false;
       this.player.setAcceleration(0, 0);
@@ -75,18 +80,18 @@ export default class Gameplay extends Scene {
   }
 
   bankLeft () {
-    if (this.player.health > 0) {
+    if (this.playerHealth > 0) {
       this.player.anims.play('ship--bank', true);
       this.player.flipX = false;
-      this.player.setAccelerationX(-120, 0);
+      this.player.setAccelerationX(-120);
     }
   }
 
   bankRight () {
-    if (this.player.health > 0) {
+    if (this.playerHealth > 0) {
       this.player.anims.play('ship--bank', true);
       this.player.flipX = true;
-      this.player.setAccelerationX(120, 0);
+      this.player.setAccelerationX(120);
     }
   }
 }

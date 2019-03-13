@@ -1,27 +1,27 @@
-var path = require('path');
-var CleanPlugin = require('clean-webpack-plugin');
-var CopyPlugin = require('copy-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  context: path.join(__dirname, 'src'),
-  entry: './scripts/index',
-  devtool: 'source-map',
+  mode: "development",
+  devtool: "inline-source-map",
+  entry: "./src/scripts/index.ts",
   output: {
-    path: path.join(__dirname, 'build'),
-    filename: 'scripts/game.js',
-    sourceMapFilename: '[file].map'
-  },
-  module: {
-    loaders: [{
-      test: /\.js$/,
-      loader: 'babel?presets[]=es2015'
-    }]
+    filename: "bundle.js"
   },
   plugins: [
-    new CleanPlugin(['build']),
-    new CopyPlugin([
-      { from: 'static' },
-      { from: 'assets' }
-    ])
-  ]
+    new CleanWebpackPlugin(['build']),
+    new CopyWebpackPlugin([{ from: 'src/assets' }]),
+    new HtmlWebpackPlugin({ title: 'Turn-based roguelike' })
+  ],
+  resolve: {
+    // Add `.ts` and `.tsx` as a resolvable extension.
+    extensions: [".ts", ".tsx", ".js"]
+  },
+  module: {
+    rules: [
+      // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
+      { test: /\.tsx?$/, loader: "ts-loader" }
+    ]
+  }
 };
