@@ -1,0 +1,31 @@
+{
+  "anims": [{
+    "key": "ship--normal",
+    "frameRate": 20,
+    "repeat": -1,
+    "frames": [
+      { "key": "ship", "frame": 0 },
+      { "key": "ship", "frame": 1 },
+      { "key": "ship", "frame": 2 }
+    ]
+  }, {
+    "key": "ship--bank",
+    "frameRate": 20,
+    "repeat": -1,
+    "frames": [
+      { "key": "ship", "frame": 3 },
+      { "key": "ship", "frame": 4 },
+      { "key": "ship", "frame": 5 }
+    ]
+  }, {
+    "key": "ship--explode",
+    "frameRate": 12,
+    "repeat": 0,
+    "hideOnComplete": true,
+    "frames": [
+      { "key": "ship", "frame": 6 },
+      { "key": "ship", "frame": 7 },
+      { "key": "ship", "frame": 8 }
+    ]
+  }]
+}

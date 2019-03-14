@@ -8,7 +8,7 @@ const container = document.createElement('div');
 container.id = 'container';
 document.body.appendChild(container);
 
-const game = new Phaser.Game({
+new Phaser.Game({
   // 2x Gameboy resolution
   width: 320,
   height: 288,

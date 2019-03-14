@@ -11,7 +11,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['build']),
-    new CopyWebpackPlugin([{ from: 'src/assets' }]),
+    new CopyWebpackPlugin([{ from: 'src/assets', to: 'assets' }]),
     new HtmlWebpackPlugin({ title: 'Turn-based roguelike' })
   ],
   resolve: {
