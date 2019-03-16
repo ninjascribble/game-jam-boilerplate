@@ -1,12 +1,24 @@
+// Global import
 import 'phaser';
-import Gameplay from './scenes/Gameplay';
-import Loading from './scenes/Loading';
-import Menu from './scenes/Menu';
 
-const container = document.createElement('div');
+import Gameplay from './Scenes/Gameplay';
+import Loading from './Scenes/Loading';
+import Menu from './Scenes/Menu';
+
+const body: HTMLElement = document.body;
+const container: HTMLElement = document.createElement('div');
+
+body.setAttribute('style', `
+  background-color: black;
+`);
 
 container.id = 'container';
-document.body.appendChild(container);
+container.setAttribute('style', `
+  margin: 0 auto;
+  max-width: 960px;
+`);
+
+body.appendChild(container);
 
 new Phaser.Game({
   // 2x Gameboy resolution
