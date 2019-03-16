@@ -21,7 +21,6 @@
     "key": "ship--explode",
     "frameRate": 12,
     "repeat": 0,
-    "hideOnComplete": true,
     "frames": [
       { "key": "ship", "frame": 6 },
       { "key": "ship", "frame": 7 },

@@ -35,8 +35,8 @@ new Phaser.Game({
     autoCenter: Phaser.Scale.CENTER_BOTH
   },
   physics: {
-    default: 'impact',
-    impact: {
+    default: 'arcade',
+    arcade: {
       gravity: 0,
       // debug: true,
       debugBodyColor: 0xffff00,
