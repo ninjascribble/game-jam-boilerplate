@@ -1,0 +1,32 @@
+{
+  "preload": {
+    "files": [
+      {
+        "type": "bitmapFont",
+        "key": "Blocktopia_32pt",
+        "textureURL": "./assets/fonts/Blocktopia_32pt.png",
+        "fontDataURL": "./assets/fonts/Blocktopia_32pt.fnt"
+      },
+      {
+        "type": "bitmapFont",
+        "key": "Blocktopia_12pt",
+        "textureURL": "./assets/fonts/Blocktopia_12pt.png",
+        "fontDataURL": "./assets/fonts/Blocktopia_12pt.fnt"
+      },
+      {
+        "type": "json",
+        "key": "animations",
+        "url": "./assets/animations/animations.json"
+      },
+      {
+        "type": "spritesheet",
+        "key": "ship",
+        "url": "./assets/sprites/ship.png",
+        "frameConfig": {
+          "frameWidth": 6,
+          "frameHeight": 6
+        }
+      }
+    ]
+  }
+}
